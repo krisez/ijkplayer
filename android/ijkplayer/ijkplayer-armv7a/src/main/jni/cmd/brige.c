@@ -2,7 +2,7 @@
 #include "fftools/ffmpeg.h"
 
 JNIEXPORT jint JNICALL
-Java_tv_danmaku_ijk_media_player_1armv7a_Pragma_FFmpeg_Exec(JNIEnv *env,jclass type,jobjectArray cmd){
+Java_tv_danmaku_ijk_media_player_1armv7a_Pragma_FFmpegExec(JNIEnv *env,jclass type,jobjectArray cmd){
     int len = (*env)->GetArrayLength(env,cmd);
     char *argv[len];
     int i;
