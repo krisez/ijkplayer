@@ -21,7 +21,7 @@
 
 #--------------------
 set -e
-
+ANDROID_NDK=/media/sf_Downloads/android-ndk-r10e
 UNAME_S=$(uname -s)
 UNAME_SM=$(uname -sm)
 echo "build on $UNAME_SM"

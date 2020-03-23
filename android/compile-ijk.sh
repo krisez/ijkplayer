@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
+ANDROID_NDK=/media/sf_Downloads/android-ndk-r10e
 if [ -z "$ANDROID_NDK" -o -z "$ANDROID_NDK" ]; then
     echo "You must define ANDROID_NDK, ANDROID_SDK before starting."
     echo "They must point to your NDK and SDK directories.\n"

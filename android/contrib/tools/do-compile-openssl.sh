@@ -18,7 +18,7 @@
 
 #--------------------
 set -e
-
+ANDROID_NDK=/media/sf_Downloads/android-ndk-r10e
 if [ -z "$ANDROID_NDK" ]; then
     echo "You must define ANDROID_NDK before starting."
     echo "They must point to your NDK directories.\n"

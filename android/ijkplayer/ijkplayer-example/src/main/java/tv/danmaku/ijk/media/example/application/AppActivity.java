@@ -21,17 +21,21 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import tv.danmaku.ijk.media.example.R;
 import tv.danmaku.ijk.media.example.activities.RecentMediaActivity;
 import tv.danmaku.ijk.media.example.activities.SampleMediaActivity;
 import tv.danmaku.ijk.media.example.activities.SettingsActivity;
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
+import tv.danmaku.ijk.media.player_armv7a.Pragma;
 
 @SuppressLint("Registered")
 public class AppActivity extends AppCompatActivity {
@@ -88,6 +92,15 @@ public class AppActivity extends AppCompatActivity {
             RecentMediaActivity.intentTo(this);
         } else if (id == R.id.action_sample) {
             SampleMediaActivity.intentTo(this);
+        }else if (id == R.id.action_edit) {
+            Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
+            IjkMediaPlayer.loadLibrariesOnce(null);
+            Pragma.FFmpegExec(new String[]{
+                    "ffmpeg","-i", Environment.getExternalStorageDirectory()+"/ysgs.mp4",
+                    "-ss","10","-t","10",
+                    "-c", "copy",
+                    Environment.getExternalStorageDirectory()+"/tem.mp4"
+            });
         }
 
         return super.onOptionsItemSelected(item);
