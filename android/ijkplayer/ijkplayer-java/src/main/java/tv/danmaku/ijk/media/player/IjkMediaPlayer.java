@@ -188,6 +188,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                     libLoader = sLocalLibLoader;
 
                 libLoader.loadLibrary("ijkffmpeg");
+                libLoader.loadLibrary("ffprobe");
                 libLoader.loadLibrary("ijksdl");
                 libLoader.loadLibrary("ijkplayer");
                 libLoader.loadLibrary("ffmpegcmd");

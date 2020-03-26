@@ -19,4 +19,5 @@ package tv.danmaku.ijk.media.player_armv7a;
 
 public class Pragma {
     public static native int FFmpegExec(String[] cmd);
+    public static native int FFprobeExec(String[] cmd);
 }

@@ -95,12 +95,17 @@ public class AppActivity extends AppCompatActivity {
         }else if (id == R.id.action_edit) {
             Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
             IjkMediaPlayer.loadLibrariesOnce(null);
-            Pragma.FFmpegExec(new String[]{
-                    "ffmpeg","-i", Environment.getExternalStorageDirectory()+"/ysgs.mp4",
-                    "-ss","10","-t","10",
-                    "-c", "copy",
-                    Environment.getExternalStorageDirectory()+"/tem.mp4"
-            });
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Pragma.FFprobeExec(new String[]{
+                            "ffprobe",
+                            "-select_streams","v","-skip_frame","nokey","-show_frames","-show_entries",
+                            "frame=pkt_pts_time,pict_type","-print_format","json",
+                            Environment.getExternalStorageDirectory()+"/ysgs.mp4"
+                    });
+                }
+            }).run();
         }
 
         return super.onOptionsItemSelected(item);
